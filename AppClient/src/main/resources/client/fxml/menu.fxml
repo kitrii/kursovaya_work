@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="343.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.MenuController">
+    <children>
+        <Label layoutX="150.0" layoutY="10.0" text="ГЛАВНОЕ МЕНЮ" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="-0.38" contrast="0.64" hue="-1.0" saturation="1.0" />
+         </effect></Label>
+        <Button fx:id="addButton" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" onAction="#switchToAddBondPage" text="Добавить информацию об облигации">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.8157894611358643" green="0.1087719276547432" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="addInPortfolioButton" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#switchToAddBondInPortfolioPage" text="Добавить облигацию в портфель">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.8157894611358643" green="0.1087719276547432" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="deleteButton" layoutX="10.0" layoutY="105.0" mnemonicParsing="false" onAction="#switchToDeleteBondPage" text="Удалить информацию об облигации">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="0.46666666865348816" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="editButton" layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#switchToEditBondPage" text="Редактировать информацию об облигации">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.9210526347160339" green="0.875" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="getAllButton" layoutX="10.0" layoutY="175.0" mnemonicParsing="false" onAction="#switchToGetAllBondsPage" text="Получить информацию обо всех облигациях">
+         <cursor>
+            <Cursor fx:constant="SE_RESIZE" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.06414473801851273" green="0.5131579041481018" blue="0.1015625" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="getPortfolioButton" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToGetPortfolioBondsPage" text="Получить портфель пользователя">
+         <effect>
+            <DropShadow radius="8.805" spread="0.02" width="16.22">
+               <color>
+                  <Color green="0.05087719112634659" blue="0.7631579041481018" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="durationButton" layoutX="10.0" layoutY="245.0" mnemonicParsing="false" onAction="#switchToCalculatePortfolioDurationPage" text="Рассчитать дюрацию портфеля пользователя">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.625" blue="0.9868420958518982" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="backButton" layoutX="200.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToMainPage" text="Вернуться к информации о приложении">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color green="0.95087719112634659" blue="0.9068420958518982" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+    </children>
+</AnchorPane>

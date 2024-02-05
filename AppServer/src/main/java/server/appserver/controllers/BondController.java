@@ -5,9 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import server.appserver.entity.BondEntity;
-import server.appserver.entity.BondsEntity;
-import server.appserver.mapper.BondMapper;
-import server.appserver.models.Bond;
 import server.appserver.services.BondService;
 
 import java.util.HashMap;
@@ -35,9 +32,26 @@ public class BondController {
 
     /** Добавление облигации в БД*/
     @PostMapping("/add")
-    private ResponseEntity<?> addBond(@RequestBody BondsEntity bond) {
+    private ResponseEntity<?> addBond(@RequestBody BondEntity bond) {
         Map<String, Object> map = new HashMap<>();
-        bondService.addBondInfo(bond);
+        bondService.addBond(bond);
+        map.put("success", true);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+    /** Удаление облигации из БД*/
+    @DeleteMapping("/delete")
+    private ResponseEntity<?> deleteBondByBondId(@RequestParam(name = "bondId") String bondId) {
+        Map<String, Object> map = new HashMap<>();
+        bondService.deleteBondByBondId(bondId);
+        map.put("success", true);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+
+    /**Обновить информауию об облигации*/
+    @PutMapping("/edit")
+    private ResponseEntity<?> editBondInfo(@RequestBody BondEntity bond) {
+        Map<String, Object> map = new HashMap<>();
+        bondService.editBond(bond);
         map.put("success", true);
         return new ResponseEntity<>(map, HttpStatus.OK);
     }

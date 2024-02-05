@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="411.0" prefWidth="517.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.DeleteBondController">
+    <Label layoutX="100.0" layoutY="23.0" text="Удалить Облигацию" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="23.0">
+        <font>
+            <Font name="Chalkboard" size="20.0" />
+        </font>
+    </Label>
+    <GridPane layoutY="73.0" prefHeight="83.0" prefWidth="457.0" AnchorPane.bottomAnchor="255.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="73.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="264.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+        </rowConstraints>
+        <Label text="Id облигации" GridPane.rowIndex="0" />
+        <TextField fx:id="bondIdField" promptText="целое число" GridPane.columnIndex="1" />
+    </GridPane>
+    <HBox layoutX="150.0" layoutY="538.0" prefHeight="31.0" prefWidth="288.0" spacing="50.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="90.0" />
+    <Button layoutX="310.0" layoutY="375.0" mnemonicParsing="false" onAction="#switchToMenuPage" prefHeight="30.0" prefWidth="200.0" text="Вернуться на Главное Меню" />
+     <Button alignment="CENTER" cache="true" defaultButton="true" layoutX="170.0" layoutY="141.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleDeleteBond" prefHeight="31.0" prefWidth="151.0" text="Удалить">
+      <font>
+         <Font name="System Font" size="13.0" />
+      </font>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <effect>
+         <ColorAdjust brightness="-0.12" contrast="0.12" hue="0.21" saturation="-0.07" />
+      </effect>
+      <cursor>
+         <Cursor fx:constant="DEFAULT" />
+      </cursor></Button>
+</AnchorPane>

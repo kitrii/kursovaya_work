@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.GetBondsController">
+        <TableView fx:id="bondsTableView" layoutX="12.0" layoutY="62.0" prefHeight="324.0" prefWidth="600.0">
+            <columns>
+                <!-- Колонки таблицы -->
+                <TableColumn fx:id="bondIdField" maxWidth="280.0" minWidth="37.0" prefWidth="37.0" text="Id" />
+                <TableColumn fx:id="bondNameField" maxWidth="280.0" minWidth="57.0" prefWidth="57.0" text="Акция" />
+                <TableColumn fx:id="repaymentPeriodField" maxWidth="280.0" minWidth="57.0" prefWidth="57.0" text="Срок" />
+                <TableColumn fx:id="nominalcostField" maxWidth="280.0" minWidth="68.0" prefWidth="68.0" text="Номинал" />
+                <TableColumn fx:id="couponRateField" maxWidth="280.0" minWidth="62.0" prefWidth="62.0" text="Купон %" />
+                <TableColumn fx:id="couponfrequencyField" maxWidth="280.0" minWidth="106.0" prefWidth="117.0" text="Частота выплат" />
+                <TableColumn fx:id="yieldToMaturityField" maxWidth="280.0" minWidth="38.0" prefWidth="38.0" text="ДКП %" />
+                <TableColumn fx:id="couponSizePay" maxWidth="280.0" minWidth="100.0" prefWidth="108.0" text="Размер выплаты" />
+            </columns>
+        </TableView>
+        <Label layoutX="120.0" layoutY="18.0" text="Информация обо всех облигациях">
+            <font>
+                <Font name="Verdana" size="20.0" />
+            </font>
+        </Label>
+        <Button fx:id="getInfoButton" layoutX="223.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleGetBonds" text="Получить информацию" />
+        <Button layoutX="410.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchToMenuPage" prefHeight="30.0" prefWidth="200.0" text="Вернуться на Главное Меню" />
+    <effect>
+        <ColorAdjust brightness="-0.12" contrast="0.12" hue="0.21" saturation="-0.07" />
+    </effect>
+</AnchorPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="411.0" prefWidth="517.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.CalculatePorfolioDurationController">
+    <Label layoutX="100.0" layoutY="23.0" text="Рассчитать дюрацию" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="23.0">
+        <font>
+            <Font name="Chalkboard" size="20.0" />
+        </font>
+    </Label>
+    <TextArea editable="false" prefHeight="78.0" prefWidth="427.0" text="При рассчёте дюрации портфеля сначала вычисляется дюрация каждой облигации. N - номинальная стоимость, с - купонная ставка, n - период выплаты, r - доходность к погашению, j - номер периода. Наиболее известный способ расчета дюрации — формула Маколея. Дюрация Маколея показывает эффективный срок до погашения облигации. Чтобы рассчитать дюрацию, надо сложить все будущие платежи с учетом срока их поступления и поделить результат на рыночную цену облигации с учетом накопленного купонного дохода. Будущие платежи по облигации — это купоны и погашение номинала частями или в конце срока." wrapText="true" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="230.0">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </TextArea>
+    <TextArea editable="false" prefHeight="52.0" prefWidth="427.0" text="Формула                                                                            Σ(j*c/(1+r)^j)/N * процент данной облигации в портфеле" wrapText="true" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="320.0">
+        <font>
+            <Font size="16.0" />
+        </font>
+    </TextArea>
+    <GridPane layoutY="98.0" prefHeight="62.0" prefWidth="457.0" AnchorPane.bottomAnchor="255.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="98.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="264.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+            <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+         <RowConstraints maxHeight="26.0" minHeight="26.0" prefHeight="26.0" />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+        </rowConstraints>
+        <Label text="Id владельца" GridPane.rowIndex="7" />
+        <TextField fx:id="ownerIdField" promptText="целое число" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Label text="Дюрация портфеля" GridPane.rowIndex="12" />
+        <TextField fx:id="portfolioDuration" promptText="рассчитанная дюрация" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+    </GridPane>
+    <HBox layoutX="150.0" layoutY="538.0" prefHeight="31.0" prefWidth="288.0" spacing="50.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="90.0" />
+    <Button layoutX="310.0" layoutY="375.0" mnemonicParsing="false" onAction="#switchToMenuPage" prefHeight="30.0" prefWidth="200.0" text="Вернуться на Главное Меню" />
+    <Button defaultButton="true" layoutX="170.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleCalculateDuration" prefHeight="31.0" prefWidth="151.0" text="Рассчитать" />
+    <Button defaultButton="true" layoutX="170.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleCalculateDuration" prefHeight="31.0" prefWidth="151.0" text="Рассчитать" />
+    <effect>
+        <ColorAdjust brightness="-0.12" contrast="0.12" hue="0.21" saturation="-0.07" />
+    </effect>
+</AnchorPane>
