@@ -15,11 +15,6 @@ public class PortfolioEntity {
     @Column(name = "owner_id", nullable = false)
     public String ownerId;
 
-//    @ManyToOne
-//    @JoinColumn(name="owner_bond_id",
-//            referencedColumnName = "bond_id",insertable=false, updatable=false)
-//    private BondsEntity bondsEntity;
-
     public PortfolioEntity(){}
 
     public PortfolioEntity(String ownerBondId, String ownerId){
