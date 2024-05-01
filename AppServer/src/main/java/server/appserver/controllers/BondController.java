@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import server.appserver.entity.BondEntity;
+import server.appserver.entity.CouponEntity;
 import server.appserver.services.BondService;
 
 import java.util.HashMap;
@@ -52,6 +53,24 @@ public class BondController {
     private ResponseEntity<?> editBondInfo(@RequestBody BondEntity bond) {
         Map<String, Object> map = new HashMap<>();
         bondService.editBond(bond);
+        map.put("success", true);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+
+    /** Добавление купона к облигации в БД*/
+    @PostMapping("/addcoupon")
+    private ResponseEntity<?> addCouponToBond(@RequestBody CouponEntity coupon) {
+        Map<String, Object> map = new HashMap<>();
+        bondService.addCouponToBond(coupon);
+        map.put("success", true);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+
+    /** Добавление купона к облигации в БД*/
+    @PutMapping("/editcoupon")
+    private ResponseEntity<?> editCouponToBond(@RequestBody CouponEntity coupon) {
+        Map<String, Object> map = new HashMap<>();
+        bondService.editCouponToBond(coupon);
         map.put("success", true);
         return new ResponseEntity<>(map, HttpStatus.OK);
     }

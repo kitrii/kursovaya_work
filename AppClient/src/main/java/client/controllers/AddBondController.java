@@ -16,13 +16,11 @@ public class AddBondController extends MenuController {
     @FXML
     TextField nominalcostField;
     @FXML
-    TextField couponfrequencyField;
-    @FXML
     TextField repaymentPeriodField;
     @FXML
-    TextField couponRateField;
+    TextField couponSize;
     @FXML
-    TextField yieldToMaturityField;
+    TextField couponfrequencyField;
 
     /** Инициализация полей */
     @FXML
@@ -30,10 +28,7 @@ public class AddBondController extends MenuController {
         bondNameField.setText(null);
         bondIdField.setText(null);
         nominalcostField.setText(null);
-        couponRateField.setText(null);
-        couponfrequencyField.setText(null);
         repaymentPeriodField.setText(null);
-        yieldToMaturityField.setText(null);
     }
     @FXML
     private void handleAddBond() {
@@ -41,10 +36,7 @@ public class AddBondController extends MenuController {
                 bondIdField.getText(),
                 bondNameField.getText(),
                 nominalcostField.getText(),
-                couponRateField.getText(),
-                repaymentPeriodField.getText(),
-                couponfrequencyField.getText(),
-                yieldToMaturityField.getText());
+                repaymentPeriodField.getText());
 
         if (addBondResult) {
             AddBondStage.close();

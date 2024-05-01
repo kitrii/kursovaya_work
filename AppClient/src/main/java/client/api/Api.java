@@ -1,6 +1,7 @@
 package client.api;
 
 import client.models.Bond;
+import client.models.BondInPortfolio;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -18,22 +19,52 @@ public class Api {
     private final String HOST = "http://localhost:8080";
 
     /** Метод добавления облигации */
-    public Boolean addBond(String bondId, String bondName, String nominalCost,
-                           String couponRate, String repaymentPeriod,
-                           String couponFrequency, String yieldToMaturity) {
+    public Boolean addBond(String bondId, String bondName, String nominalCost, String repaymentPeriod) {
         Map<String, String> map = new HashMap<>();
         map.put("bondName", bondName);
         map.put("bondId", bondId);
         map.put("nominalCost", nominalCost);
-        map.put("couponFrequency", couponFrequency);
         map.put("repaymentPeriod", repaymentPeriod);
-        map.put("couponRate", couponRate);
-        map.put("yieldToMaturity", yieldToMaturity);
-
         Gson gson = new Gson();
         String json = gson.toJson(map);
         String URL = String.format("%s/bonds/add", HOST);
         String response = HttpRequest.sendPost(URL, json);
+        if (response != null) {
+            JsonObject jsonResult = JsonParser.parseString(response).getAsJsonObject();
+            if (jsonResult.get("success").getAsBoolean()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Boolean addCouponToBond(String bondId, String couponSize, String couponFrequency) {
+        Map<String, String> map = new HashMap<>();
+        map.put("bondId", bondId);
+        map.put("couponSize", couponSize);
+        map.put("couponFrequency", couponFrequency);
+        Gson gson = new Gson();
+        String json = gson.toJson(map);
+        String URL = String.format("%s/bonds/addcoupon", HOST);
+        String response = HttpRequest.sendPost(URL, json);
+        if (response != null) {
+            JsonObject jsonResult = JsonParser.parseString(response).getAsJsonObject();
+            if (jsonResult.get("success").getAsBoolean()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Boolean editCoupon(String bondId, String couponSize, String couponFrequency) {
+        Map<String, String> map = new HashMap<>();
+        map.put("bondId", bondId);
+        map.put("couponSize", couponSize);
+        map.put("couponFrequency", couponFrequency);
+        Gson gson = new Gson();
+        String json = gson.toJson(map);
+        String URL = String.format("%s/bonds/editcoupon", HOST);
+        String response = HttpRequest.sendPut(URL, json);
         if (response != null) {
             JsonObject jsonResult = JsonParser.parseString(response).getAsJsonObject();
             if (jsonResult.get("success").getAsBoolean()) {
@@ -74,10 +105,10 @@ public class Api {
                         bondJson.get("bondName").getAsString(),
                         bondJson.get("bondId").getAsInt(),
                         bondJson.get("nominalCost").getAsInt(),
-                        bondJson.get("couponFrequency").getAsInt(),
                         bondJson.get("repaymentPeriod").getAsInt(),
-                        bondJson.get("couponRate").getAsInt(),
-                        bondJson.get("yieldToMaturity").getAsInt()
+                        bondJson.get("couponExisting").getAsString(),
+                        bondJson.get("couponSize").getAsString(),
+                        bondJson.get("couponFrequency").getAsString()
                 );
                 result.add(bond);
             }
@@ -88,24 +119,24 @@ public class Api {
 
 
     /** Получаем всю информацию об облигациях для определенного владельца*/
-    public List<Bond> getBondsByOwnerId(String ownerId) {
+    public List<BondInPortfolio> getBondsByOwnerId(String ownerId) {
         String URL = String.format("%s/portfolio/owner?ownerId=%s", HOST, ownerId);
-        List<Bond> result = new ArrayList<>();
+        List<BondInPortfolio> result = new ArrayList<>();
         String response = HttpRequest.sendGet(URL);
 
         if (response != null) {
             JsonArray jsonBondArray = JsonParser.parseString(response).getAsJsonArray();
             for (int i = 0; i < jsonBondArray.size(); i++) {
                 JsonObject bondJson = jsonBondArray.get(i).getAsJsonObject();
-                Bond bond = new Bond(
+                BondInPortfolio bond = new BondInPortfolio(
                         bondJson.get("bondName").getAsString(),
                         bondJson.get("bondId").getAsInt(),
                         bondJson.get("nominalCost").getAsInt(),
-                        bondJson.get("couponFrequency").getAsInt(),
                         bondJson.get("repaymentPeriod").getAsInt(),
-                        bondJson.get("couponRate").getAsInt(),
-                        bondJson.get("yieldToMaturity").getAsInt()
-                );
+                        bondJson.get("couponExisting").getAsString(),
+                        bondJson.get("couponSize").getAsString(),
+                        bondJson.get("couponFrequency").getAsString(),
+                        bondJson.get("count").getAsString());
                 result.add(bond);
             }
         }
@@ -113,7 +144,7 @@ public class Api {
         return result;
     }
 
-    /** Удаляем облигацию у определенного владельца */
+    /** Удаляем облигацию */
     public boolean deleteBond(String bondId) {
         String URL = String.format("%s/bonds/delete?bondId=%s", HOST, bondId);
         String response = HttpRequest.sendDelete(URL);
@@ -123,19 +154,12 @@ public class Api {
         return false;
     }
 
-    public boolean editBond(String bondId, String bondName, String nominalCost,
-                            String couponRate, String repaymentPeriod,
-                            String couponFrequency, String yieldToMaturity
-                            ) {
+    public boolean editBond(String bondId, String nominalCost, String repaymentPeriod) {
         String URL = String.format("%s/bonds/edit", HOST);
         Map<String, String> map = new HashMap<>();
-        map.put("bondName", bondName);
         map.put("bondId", bondId);
         map.put("nominalCost", nominalCost);
-        map.put("couponFrequency", couponFrequency);
         map.put("repaymentPeriod", repaymentPeriod);
-        map.put("couponRate", couponRate);
-        map.put("yieldToMaturity", yieldToMaturity);
         Gson gson = new Gson();
         String json = gson.toJson(map);
         String response = HttpRequest.sendPut(URL, json);

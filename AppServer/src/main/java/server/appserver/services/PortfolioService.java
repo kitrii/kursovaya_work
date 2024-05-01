@@ -3,6 +3,7 @@ package server.appserver.services;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import server.appserver.entity.BondEntity;
+import server.appserver.entity.BondInPortfolioEntity;
 import server.appserver.entity.PortfolioEntity;
 import server.appserver.operations.BondsTableOperations;
 
@@ -14,8 +15,8 @@ public class PortfolioService {
     private final BondsTableOperations BTO = new BondsTableOperations();
 
     @Transactional(readOnly = true)
-    public List<BondEntity> getBondsByOwnerId(String ownerId){
-        List<BondEntity> result = BTO.getBondsByOwnerId(ownerId);
+    public List<BondInPortfolioEntity> getBondsByOwnerId(String ownerId){
+        List<BondInPortfolioEntity> result = BTO.getBondsByOwnerId(ownerId);
         return result;
     }
 

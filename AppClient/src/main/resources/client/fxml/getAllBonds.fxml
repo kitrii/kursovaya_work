@@ -13,10 +13,9 @@
                 <TableColumn fx:id="bondNameField" maxWidth="280.0" minWidth="57.0" prefWidth="57.0" text="Акция" />
                 <TableColumn fx:id="repaymentPeriodField" maxWidth="280.0" minWidth="57.0" prefWidth="57.0" text="Срок" />
                 <TableColumn fx:id="nominalcostField" maxWidth="280.0" minWidth="68.0" prefWidth="68.0" text="Номинал" />
-                <TableColumn fx:id="couponRateField" maxWidth="280.0" minWidth="62.0" prefWidth="62.0" text="Купон %" />
-                <TableColumn fx:id="couponfrequencyField" maxWidth="280.0" minWidth="106.0" prefWidth="117.0" text="Частота выплат" />
-                <TableColumn fx:id="yieldToMaturityField" maxWidth="280.0" minWidth="38.0" prefWidth="38.0" text="ДКП %" />
-                <TableColumn fx:id="couponSizePay" maxWidth="280.0" minWidth="100.0" prefWidth="108.0" text="Размер выплаты" />
+                <TableColumn fx:id="couponExistingField" maxWidth="280.0" minWidth="62.0" prefWidth="104.0" text="Есть ли купон?" />
+                <TableColumn fx:id="couponSizePayField" maxWidth="280.0" minWidth="99.0" prefWidth="112.0" text="Размер купона" />
+                <TableColumn fx:id="couponFrequencyField" maxWidth="280.0" minWidth="100.0" prefWidth="164.0" text="Частота выплат" />
             </columns>
         </TableView>
         <Label layoutX="120.0" layoutY="18.0" text="Информация обо всех облигациях">

@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.effect.ColorAdjust?>
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="624.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="client.controllers.GetBondsController">
-        <TableView fx:id="bondsTableView" layoutX="12.0" layoutY="62.0" prefHeight="324.0" prefWidth="600.0">
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.GetPortfolioBondsController">
+        <TableView fx:id="porfolioBondsTableValues" layoutX="12.0" layoutY="62.0" prefHeight="324.0" prefWidth="634.0">
             <columns>
                 <!-- Колонки таблицы -->
                 <TableColumn fx:id="bondIdField" maxWidth="280.0" minWidth="37.0" prefWidth="37.0" text="Id" />
                 <TableColumn fx:id="bondNameField" maxWidth="280.0" minWidth="57.0" prefWidth="57.0" text="Акция" />
                 <TableColumn fx:id="repaymentPeriodField" maxWidth="280.0" minWidth="57.0" prefWidth="57.0" text="Срок" />
                 <TableColumn fx:id="nominalcostField" maxWidth="280.0" minWidth="68.0" prefWidth="68.0" text="Номинал" />
-                <TableColumn fx:id="couponRateField" maxWidth="280.0" minWidth="61.0" prefWidth="61.0" text="Купон %" />
-                <TableColumn fx:id="couponfrequencyField" maxWidth="280.0" minWidth="115.0" prefWidth="115.0" text="Частота выплат" />
-                <TableColumn fx:id="yieldToMaturityField" maxWidth="280.0" minWidth="38.0" prefWidth="38.0" text="ДКП %" />
-<!--                <TableColumn fx:id="ownerIdField" maxWidth="280.0" minWidth="84.0" prefWidth="84.0" text="Id владельца" />-->
-<!--                <TableColumn fx:id="ownerNameField" maxWidth="280.0" minWidth="70.0" prefWidth="70.0" text="Владелец" />-->
-                <TableColumn fx:id="couponSizePay" maxWidth="280.0" minWidth="110.0" prefWidth="110.0" text="Размер выплаты" />
+                <TableColumn fx:id="countField" maxWidth="280.0" minWidth="68.0" prefWidth="106.0" text="Количество" />
+                <TableColumn fx:id="couponExistingField" maxWidth="280.0" minWidth="62.0" prefWidth="94.0" text="Есть ли купон?" />
+                <TableColumn fx:id="couponSizePayField" maxWidth="280.0" minWidth="50.0" prefWidth="108.0" text="Размер купона" />
+                <TableColumn fx:id="couponFrequencyField" maxWidth="280.0" minWidth="50.0" prefWidth="105.0" text="Частота выплат" />
             </columns>
         </TableView>
         <Label layoutX="120.0" layoutY="18.0" text="Информация об облигациях портфеля">
@@ -25,11 +24,11 @@
                 <Font name="Verdana" size="20.0" />
             </font>
         </Label>
-        <Label layoutX="411.0" layoutY="398.0" text="Id владельца"/>
+        <Label layoutX="411.0" layoutY="398.0" text="Id владельца" />
         <TextField fx:id="ownerId" layoutX="51.0" layoutY="400.0" prefHeight="26.0" prefWidth="95.0" promptText="Id владельца" GridPane.columnIndex="1" />
         <Button fx:id="getPortfolioButton" defaultButton="true" layoutX="223.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleGetBondsByOwner" prefHeight="30.0" prefWidth="157.0" text="Получить информацию" />
+        <Button layoutX="411.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchToMenuPage" prefHeight="30.0" prefWidth="199.0" text="Вернуться на Главное Меню" />
     <effect>
         <ColorAdjust brightness="-0.12" contrast="0.12" hue="0.21" saturation="-0.07" />
     </effect>
-        <Button layoutX="411.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchToMenuPage" prefHeight="30.0" prefWidth="199.0" text="Вернуться на Главное Меню" />
 </AnchorPane>

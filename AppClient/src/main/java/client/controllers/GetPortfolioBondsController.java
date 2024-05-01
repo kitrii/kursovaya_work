@@ -1,6 +1,8 @@
 package client.controllers;
+
 import client.api.Api;
 import client.models.Bond;
+import client.models.BondInPortfolio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,29 +12,28 @@ import javafx.scene.control.TextField;
 
 import java.util.List;
 
+public class GetPortfolioBondsController extends MenuController{
 
-public class GetBondsController extends MenuController{
-
-    private ObservableList<Bond> bondsTableValues = FXCollections.observableArrayList();
+    private ObservableList<BondInPortfolio> bondsTableValues = FXCollections.observableArrayList();
     protected Api api = new Api();
     @FXML
-    public TableView<Bond> bondsTableView = new TableView<Bond>();
+    public TableView<BondInPortfolio> porfolioBondsTableValues = new TableView<BondInPortfolio>();
     @FXML
-    public TableColumn<Bond, String> bondNameField;
+    public TableColumn<BondInPortfolio, String> bondNameField;
     @FXML
-    public TableColumn<Bond, Integer> bondIdField;
+    public TableColumn<BondInPortfolio, Integer> bondIdField;
     @FXML
-    public TableColumn<Bond, Integer>  nominalcostField;
+    public TableColumn<BondInPortfolio, Integer>  nominalcostField;
     @FXML
-    public TableColumn<Bond, Integer> repaymentPeriodField;
+    public TableColumn<BondInPortfolio, Integer> repaymentPeriodField;
     @FXML
-    public TableColumn<Bond, String> couponExistingField;
+    public TableColumn<BondInPortfolio, String> couponExistingField;
     @FXML
-    public TableColumn<Bond, String> couponSizePayField;
+    public TableColumn<BondInPortfolio, String> couponSizePayField;
     @FXML
-    public TableColumn<Bond, String> couponFrequencyField;
+    public TableColumn<BondInPortfolio, String> couponFrequencyField;
     @FXML
-    public TableColumn<Bond, Integer> countField;
+    public TableColumn<BondInPortfolio, String> countField;
     @FXML
     TextField ownerId = new TextField();
 
@@ -51,18 +52,15 @@ public class GetBondsController extends MenuController{
         this.couponExistingField.setCellValueFactory(value -> value.getValue().couponExisting);
         this.couponFrequencyField.setCellValueFactory(value -> value.getValue().couponFrequency);
         this.couponSizePayField.setCellValueFactory(value -> value.getValue().couponSize);
+        this.countField.setCellValueFactory(value -> value.getValue().count);
         //добавляю данные об облигациях в таблицу
-        this.bondsTableView.setItems(bondsTableValues);
+        this.porfolioBondsTableValues.setItems(bondsTableValues);
     }
-    @FXML
 
-    private void handleGetBonds() {
-        // очищаем таблицу
-        bondsTableView.getItems().clear();
-        //  получаем данные об облигациях из бд (список Bond объектов)
-        List<Bond> getAllBondsResult = api.getAllBonds();
-        // добавляем данные в FX коллекцию-список (
-        bondsTableValues.addAll(getAllBondsResult);
+    @FXML
+    private void handleGetBondsByOwner() {
+        porfolioBondsTableValues.getItems().clear();
+        List<BondInPortfolio> getBondsByOwnerResult = api.getBondsByOwnerId(ownerId.getText());
+        bondsTableValues.addAll(getBondsByOwnerResult);
     }
 }
-

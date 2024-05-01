@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="411.0" prefWidth="517.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="client.controllers.EditBondController">
-    <Label layoutX="100.0" layoutY="23.0" text="Редактировать информацию по облигации" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="23.0">
+<AnchorPane prefHeight="411.0" prefWidth="517.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="client.controllers.EditCouponController">
+    <Label layoutX="100.0" layoutY="23.0" text="Редактировать информацию по купону" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="23.0">
         <font>
             <Font name="Chalkboard" size="20.0" />
         </font>
@@ -28,14 +28,14 @@
             <RowConstraints />
         </rowConstraints>
         <Label text="Id облигации" GridPane.rowIndex="0" />
-        <TextField fx:id="bondIdField" promptText="целое число" GridPane.columnIndex="1" />
-        <Label text="Номинальная стоимость" GridPane.rowIndex="1" />
-        <TextField fx:id="repaymentPeriodField" promptText="в месяцах" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label text="Срок погашения" GridPane.rowIndex="2" />
-        <TextField fx:id="nominalcostField" layoutX="152.0" layoutY="56.0" promptText="целое число" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="Фиксированный размер купона" GridPane.rowIndex="1" />
+        <Label text="Частота выплат купона" GridPane.rowIndex="2" />
+        <TextField fx:id="bondIdField" promptText="целое число (проценты)" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="couponSizeField" promptText="целое число" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="couponFrequencyField" promptText="целое число (проценты)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     </GridPane>
-    <HBox layoutX="150.0" layoutY="538.0" prefHeight="31.0" prefWidth="159.0" spacing="50.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="219.0">
-        <Button defaultButton="true" mnemonicParsing="false" onAction="#handleEditBond" prefHeight="31.0" prefWidth="151.0" text="Редактировать" />
+    <HBox layoutX="150.0" layoutY="538.0" prefHeight="31.0" prefWidth="159.0" spacing="50.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="210.0">
+        <Button defaultButton="true" mnemonicParsing="false" onAction="#handleEditCoupon" prefHeight="31.0" prefWidth="151.0" text="Редактировать" />
         <effect>
             <ColorAdjust brightness="-0.12" contrast="0.12" hue="0.21" saturation="-0.07" />
         </effect>

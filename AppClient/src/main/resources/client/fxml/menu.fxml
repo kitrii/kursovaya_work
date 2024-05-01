@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="343.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.MenuController">
+<AnchorPane prefHeight="472.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.MenuController">
     <children>
         <Label layoutX="150.0" layoutY="10.0" text="ГЛАВНОЕ МЕНЮ" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" underline="true">
          <font>
@@ -16,7 +16,7 @@
          <effect>
             <ColorAdjust brightness="-0.38" contrast="0.64" hue="-1.0" saturation="1.0" />
          </effect></Label>
-        <Button fx:id="addButton" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" onAction="#switchToAddBondPage" text="Добавить информацию об облигации">
+        <Button fx:id="addButton" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#switchToAddBondPage" text="Добавить информацию об облигации">
          <effect>
             <DropShadow>
                <color>
@@ -24,15 +24,31 @@
                </color>
             </DropShadow>
          </effect></Button>
-        <Button fx:id="addInPortfolioButton" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#switchToAddBondInPortfolioPage" text="Добавить облигацию в портфель">
+        <Button fx:id="addCouponButton" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" onAction="#switchToAddCouponPage" text="Добавить купон к облигации">
          <effect>
             <DropShadow>
                <color>
-                  <Color red="0.8157894611358643" green="0.1087719276547432" />
+                  <Color red="0.1157894611358643" green="0.1287719276547432" />
                </color>
             </DropShadow>
          </effect></Button>
-        <Button fx:id="deleteButton" layoutX="10.0" layoutY="105.0" mnemonicParsing="false" onAction="#switchToDeleteBondPage" text="Удалить информацию об облигации">
+        <Button fx:id="editCouponButton" layoutX="10.0" layoutY="130.0" mnemonicParsing="false" onAction="#switchToEditCouponPage" text="Редактировать купон для облигации">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.2157894611358643" green="0.5087719276547432" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="addInPortfolioButton" layoutX="10.0" layoutY="170.0" mnemonicParsing="false" onAction="#switchToAddBondInPortfolioPage" text="Добавить облигацию в портфель">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.22159894611358643" green="0.1687719276547432" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button fx:id="deleteButton" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToDeleteBondPage" text="Удалить информацию об облигации">
          <effect>
             <DropShadow>
                <color>
@@ -40,7 +56,7 @@
                </color>
             </DropShadow>
          </effect></Button>
-        <Button fx:id="editButton" layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#switchToEditBondPage" text="Редактировать информацию об облигации">
+        <Button fx:id="editButton" layoutX="10.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToEditBondPage" text="Редактировать информацию об облигации">
          <effect>
             <DropShadow>
                <color>
@@ -48,10 +64,7 @@
                </color>
             </DropShadow>
          </effect></Button>
-        <Button fx:id="getAllButton" layoutX="10.0" layoutY="175.0" mnemonicParsing="false" onAction="#switchToGetAllBondsPage" text="Получить информацию обо всех облигациях">
-         <cursor>
-            <Cursor fx:constant="SE_RESIZE" />
-         </cursor>
+        <Button fx:id="getAllButton" layoutX="10.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchToGetAllBondsPage" text="Получить информацию обо всех облигациях">
          <effect>
             <DropShadow>
                <color>
@@ -59,7 +72,7 @@
                </color>
             </DropShadow>
          </effect></Button>
-        <Button fx:id="getPortfolioButton" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToGetPortfolioBondsPage" text="Получить портфель пользователя">
+        <Button fx:id="getPortfolioButton" layoutX="10.0" layoutY="330.0" mnemonicParsing="false" onAction="#switchToGetPortfolioBondsPage" text="Получить портфель пользователя">
          <effect>
             <DropShadow radius="8.805" spread="0.02" width="16.22">
                <color>
@@ -67,7 +80,7 @@
                </color>
             </DropShadow>
          </effect></Button>
-        <Button fx:id="durationButton" layoutX="10.0" layoutY="245.0" mnemonicParsing="false" onAction="#switchToCalculatePortfolioDurationPage" text="Рассчитать дюрацию портфеля пользователя">
+        <Button fx:id="durationButton" layoutX="10.0" layoutY="370.0" mnemonicParsing="false" onAction="#switchToCalculatePortfolioDurationPage" text="Рассчитать дюрацию портфеля пользователя">
          <effect>
             <DropShadow>
                <color>
@@ -75,7 +88,7 @@
                </color>
             </DropShadow>
          </effect></Button>
-        <Button fx:id="backButton" layoutX="200.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToMainPage" text="Вернуться к информации о приложении">
+        <Button fx:id="backButton" layoutX="210.0" layoutY="430.0" mnemonicParsing="false" onAction="#switchToMainPage" text="Вернуться к информации о приложении">
          <effect>
             <DropShadow>
                <color>

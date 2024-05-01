@@ -29,6 +29,28 @@ public class MenuController extends Main {
         stage.show();
     }
     @FXML
+    private void switchToAddCouponPage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        URL xmlUrl = Main.class.getResource("fxml/addCouponToBond.fxml");
+        loader.setLocation(xmlUrl);
+        root = loader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    private void switchToEditCouponPage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        URL xmlUrl = Main.class.getResource("fxml/editCoupon.fxml");
+        loader.setLocation(xmlUrl);
+        root = loader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
     private void switchToAddBondInPortfolioPage(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         URL xmlUrl = Main.class.getResource("fxml/addBondInPortfolio.fxml");
