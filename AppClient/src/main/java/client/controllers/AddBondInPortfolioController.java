@@ -6,8 +6,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AddBondInPortfolioController extends MenuController{
-    protected Stage AddBondInPortfolioStage;
-    protected Api api = new Api();
+    public Stage AddBondInPortfolioStage = new Stage();
+    public Api api = new Api();
 
     @FXML
     TextField bondIdField;

@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 
 public class AddBondController extends MenuController {
-    protected Stage AddBondStage;
+    protected Stage AddBondStage = new Stage();
 
     protected Api api = new Api();
     @FXML

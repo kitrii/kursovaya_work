@@ -6,8 +6,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditCouponController extends MenuController{
-    protected Stage EditCouponStage;
-    protected Api api = new Api();
+    public Stage EditCouponStage = new Stage();
+    public Api api = new Api();
 
     @FXML
     TextField bondIdField;
